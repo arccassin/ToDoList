@@ -12,3 +12,10 @@ public class Main {
         SpringApplication.run(Main.class, args);
     }
 }
+
+
+/**
+ *уметь выводить список дел
+ *выводить информацию об одном деле
+ *добавлять и удалять
+ */
