@@ -28,7 +28,7 @@ public class TaskController {
     @GetMapping("/tasks/{id}")
     public ResponseEntity get(@PathVariable int id){
         Task task = Storage.getTask(id);
-        if (task== null){
+        if (task == null){
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
         }
         return new ResponseEntity(task, HttpStatus.OK);
@@ -40,5 +40,10 @@ public class TaskController {
             return ResponseEntity.status(HttpStatus.NO_CONTENT).body(null);
         }
         return null;
+    }
+
+    @PutMapping("/tasks/{id}")
+    public ResponseEntity put(@PathVariable int id, Task task){
+        return ResponseEntity.status(Storage.putTask(id, task)).body(null);
     }
 }
