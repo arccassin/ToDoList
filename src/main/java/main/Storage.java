@@ -31,13 +31,13 @@ public class Storage {
         return id;
     }
 
-    public static HttpStatus putTask(int taskId, Task task){
+    public static int putTask(int taskId, Task task){
         if (tasks.containsKey(taskId)){
             tasks.put(taskId, task);
-            return HttpStatus.OK;
+            return 200;
         } else {
             tasks.put(taskId, task);
-            return HttpStatus.CREATED;
+            return 201;
         }
     }
 
