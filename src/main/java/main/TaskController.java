@@ -43,6 +43,12 @@ public class TaskController {
 
     @PutMapping("/tasks/{id}")
     public ResponseEntity put(@PathVariable int id, Task task) {
-        return ResponseEntity.status(Storage.putTask(id, task)).body(null);
+        int res = Storage.putTask(id, task);
+        if (res == 201) {
+            return ResponseEntity.status(HttpStatus.CREATED).body(null);
+        } else if (res == 200) {
+            return ResponseEntity.status(HttpStatus.OK).body(null);
+        } else return ResponseEntity.status(HttpStatus.NOT_IMPLEMENTED).body(null);
+
     }
 }
