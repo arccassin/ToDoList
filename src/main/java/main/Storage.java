@@ -1,7 +1,6 @@
 package main;
 
-import org.springframework.http.HttpStatus;
-import response.Task;
+import main.model.Task;
 
 import java.util.ArrayList;
 import java.util.HashMap;
