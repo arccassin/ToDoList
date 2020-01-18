@@ -48,11 +48,7 @@ public class TaskController {
 
     @DeleteMapping("/tasks/{id}")
     public ResponseEntity delete(@PathVariable int id) {
-        Optional<Task> optionalTask = taskRepository.findById(id);
-        if (!optionalTask.isPresent()) {
-            return null;
-        }
-        taskRepository.delete(optionalTask.get());
+        taskRepository.deleteById(id);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).body(null);
     }
 
